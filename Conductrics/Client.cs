@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net;
+using System.Diagnostics;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace Conductrics {
 	public class Client {
@@ -31,9 +34,11 @@ namespace Conductrics {
 			http.Headers.Add("mpath-apikey", this.key);
 			if( session != null && session.Length > 0 )
 				http.Headers.Add("mpath-session", session);
-			var content = new StreamReader(http.GetResponse().GetResponseStream()).ReadToEnd();
-			dynamic result = JsonValue.Parse(content);
-			Debug.Print(result);
+			string content = new StreamReader(http.GetResponse().GetResponseStream()).ReadToEnd();
+			JavaScriptSerializer ser = new JavaScriptSerializer();
+			object o = ser.DeserializeObject(content);
+			Debug.Print(o.ToString());
+			return o.ToString();
 		}
 	}
 }
