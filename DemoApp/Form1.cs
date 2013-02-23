@@ -18,7 +18,7 @@ namespace DemoApp {
 			Conductrics.API.Key = "api-nQyALpnyPsZHQrVbvtOhZpYz";
 			Conductrics.API.Owner = "owner_sxvgyHUlj";
 			Agent agent = new Agent("agent-dotnet");
-			textBox1.Text = agent.Decide(new string[] { "a", "b" });
+			label2.Text = agent.Decide<string>(Guid.NewGuid().ToString(), "a", "b");
 		}
 
 	}
