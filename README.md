@@ -1,20 +1,32 @@
-
 C# Wrapper for the Conductrics API.
 
 Install
 -------
 
-	Clone this project.
-
     git clone git@github.com:conductrics/conductrics-csharp.git
-
-	In your own project, add a reference to the Conductrics project within.
 
 Code
 ----
 
+
+Set your credentials.
+
     Conductrics.API.Key = "...";
     Conductrics.API.Owner = "...";
+
+
+Create one or more agents.
+
     Conductrics.Agent sortAgent = new Conductrics.Agent("sample-agent");
-		string sessionId = Guid.NewGuid().ToString()
-    SortOrder order = fileSortAgent.Decide<SortOrder>(sessionId, SortOrder.Ascending, SortOrder.Descending);
+
+
+Make a choice between any number/type of things.
+
+    SortOrder order = sortAgent.Decide<SortOrder>(sessionId, SortOrder.Ascending, SortOrder.Descending);
+
+
+Send a reward when a session reaches one of your application's goals.
+
+    sortAgent.Reward(sessionId);
+
+The call to Decide() will begin to learn which decisions maximize the Reward().
