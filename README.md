@@ -1,11 +1,18 @@
 
 C# Wrapper for the Conductrics API.
 
-Usage:
-	Clone this project.
-	In your own project, add a reference to it.
+Install
+-------
 
-Code:
+	Clone this project.
+
+    git clone git@github.com:conductrics/conductrics-csharp.git
+
+	In your own project, add a reference to the Conductrics project within.
+
+Code
+----
+
     Conductrics.API.Key = "...";
     Conductrics.API.Owner = "...";
     Conductrics.Agent sortAgent = new Conductrics.Agent("sample-agent");
