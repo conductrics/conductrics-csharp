@@ -5,6 +5,9 @@ Install
 
     git clone git@github.com:conductrics/conductrics-csharp.git
 
+Add a Project Reference to the Conductrics.csproj within.
+
+
 Code
 ----
 
