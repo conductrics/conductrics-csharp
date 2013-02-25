@@ -61,10 +61,8 @@ namespace Conductrics {
 			var http = mpathRequest(url, session);
 			try {
 				var response = http.GetResponse();
-				Debug.Print("Have response.");
 				var stream = response.GetResponseStream();
 				string content = new StreamReader(stream).ReadToEnd();
-				Debug.Print("Finished reading response.");
 				JavaScriptSerializer ser = new JavaScriptSerializer();
 				SimpleDecision d = ser.Deserialize<SimpleDecision>(content);
 				int index = int.Parse(d.decision);
