@@ -5,6 +5,9 @@ Install
 
     git clone git@github.com:conductrics/conductrics-csharp.git
 
+Add a Project Reference to the Conductrics.csproj within.
+
+
 Code
 ----
 
@@ -27,6 +30,6 @@ Make a choice between any number/type of things.
 
 Send a reward when a session reaches one of your application's goals.
 
-    sortAgent.Reward(sessionId);
+    sortAgent.Reward(sessionId, value: 11.99);
 
 The call to Decide() will begin to learn which decisions maximize the Reward().
