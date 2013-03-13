@@ -15,10 +15,12 @@ namespace DemoApp {
 		}
 
 		private void Form1_Load( object sender, EventArgs e ) {
-			Conductrics.API.Key = "api-nQyALpnyPsZHQrVbvtOhZpYz";
-			Conductrics.API.Owner = "owner_sxvgyHUlj";
-			Agent agent = new Agent("agent-dotnet");
-			label2.Text = agent.Decide<string>(Guid.NewGuid().ToString(), "a", "b");
+			string sessionId = Guid.NewGuid().ToString();
+			label3.Text = "Session: " + sessionId;
+			Agent agent = new Agent("agent-dotnet")
+				.setKey("api-nQyALpnyPsZHQrVbvtOhZpYz")
+				.setOwner("owner_sxvgyHUlj");
+			label2.Text = agent.Decide<string>(sessionId, "a", "b");
 		}
 
 	}
